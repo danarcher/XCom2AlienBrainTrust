@@ -17,6 +17,9 @@
     <Folder Include="Src\FieldSurvivalUniforms\Classes\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\XComFieldSurvivalUniforms.ini">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ReadMe.md" />
     <Content Include="ModPreview.jpg" />
     <Content Include="Config\XComEditor.ini" />

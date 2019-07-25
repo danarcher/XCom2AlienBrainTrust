@@ -1,6 +1,54 @@
-class UIScreenListener_UIArmory_MainMenu_FieldSurvivalUniforms extends UIScreenListener;
+class UIScreenListener_UIArmory_MainMenu_FieldSurvivalUniforms
+    extends UIScreenListener
+    config(FieldSurvivalUniforms);
 
-var UIButton UniformButton;
+var config bool AFFECT_HAIR;
+var config bool AFFECT_LOWER_FACE_PROP;
+var config bool AFFECT_UPPER_FACE_PROP;
+var config bool AFFECT_FACE_PAINT;
+var config bool AFFECT_ATTITUDE;
+var config bool AFFECT_TATTOO_TINT;
+var config bool AFFECT_WEAPON_TINT;
+var config bool AFFECT_WEAPON_PATTERN;
+var config bool AFFECT_HELMET;
+var config bool AFFECT_ARMOR;
+var config bool AFFECT_ARMOR_TINT;
+var config bool AFFECT_ARMOR_PATTERN;
+
+var config name HAIR_FEMALE;
+var config name HAIR_MALE;
+var config name LOWER_FACE_PROP_FEMALE;
+var config name LOWER_FACE_PROP_MALE;
+var config name UPPER_FACE_PROP_FEMALE;
+var config name UPPER_FACE_PROP_MALE;
+var config name FACE_PAINT_FEMALE;
+var config name FACE_PAINT_MALE;
+var config name WEAPON_PATTERN_FEMALE;
+var config name WEAPON_PATTERN_MALE;
+var config name HELMET_FEMALE;
+var config name HELMET_MALE;
+var config name KEVLAR_ARMOR_FEMALE;
+var config name KEVLAR_ARMOR_MALE;
+var config name PLATED_ARMOR_FEMALE;
+var config name PLATED_ARMOR_MALE;
+var config name POWERED_ARMOR_FEMALE;
+var config name POWERED_ARMOR_MALE;
+var config name ARMOR_PATTERN_FEMALE;
+var config name ARMOR_PATTERN_MALE;
+
+var config int ATTITUDE_FEMALE;
+var config int ATTITUDE_MALE;
+var config int TATTOO_TINT_FEMALE;
+var config int TATTOO_TINT_MALE;
+var config int WEAPON_TINT_FEMALE;
+var config int WEAPON_TINT_MALE;
+var config int ARMOR_TINT_FEMALE;
+var config int ARMOR_TINT_MALE;
+var config int ARMOR_TINT_SECONDARY_FEMALE;
+var config int ARMOR_TINT_SECONDARY_MALE;
+
+var UIButton UniformOneButton;
+var UIButton UniformAllButton;
 var UIArmory_MainMenu ParentScreen;
 
 event OnInit(UIScreen Screen)
@@ -22,96 +70,77 @@ event OnRemoved(UIScreen Screen)
 
 function AddFloatingButton()
 {
-    UniformButton = ParentScreen.Spawn(class'UIButton', ParentScreen);
-    UniformButton.InitButton('', "Set All Uniforms", OnButtonCallback, eUIButtonStyle_HOTLINK_BUTTON);
-    UniformButton.SetResizeToText(false);
-    UniformButton.SetFontSize(24);
-    UniformButton.SetPosition(140, 80);
-    UniformButton.SetSize(260, 36);
-    UniformButton.Show();
+    UniformOneButton = ParentScreen.Spawn(class'UIButton', ParentScreen);
+    UniformOneButton.InitButton('', "Set Soldier Uniform", ConfirmSetOneUniform, eUIButtonStyle_HOTLINK_BUTTON);
+    UniformOneButton.SetResizeToText(false);
+    UniformOneButton.SetFontSize(24);
+    UniformOneButton.SetPosition(140, 80);
+    UniformOneButton.SetSize(260, 36);
+    UniformOneButton.Show();
+
+    UniformAllButton = ParentScreen.Spawn(class'UIButton', ParentScreen);
+    UniformAllButton.InitButton('', "Set ALL Uniforms", ConfirmSetAllUniforms, eUIButtonStyle_HOTLINK_BUTTON);
+    UniformAllButton.SetResizeToText(false);
+    UniformAllButton.SetFontSize(24);
+    UniformAllButton.SetPosition(140, 120);
+    UniformAllButton.SetSize(260, 36);
+    UniformAllButton.Show();
 }
 
-simulated function SetAppearanceForArmor(XComGameState_Unit Unit, name ArmorName, bool Female)
+simulated function ConfirmSetOneUniform(UIButton kButton)
 {
-    if (ArmorName == 'KevlarArmor')
+    local TDialogueBoxData kDialogData;
+    kDialogData.eType = eDialog_Normal;
+    kDialogData.strTitle = "Confirm Uniform";
+    kDialogData.strText = "Replace soldier uniform? You can't undo this except by reloading a save.";
+    kDialogData.strAccept = "REPLACE";
+    kDialogData.strCancel = "CANCEL";
+    kDialogData.fnCallbackEx = SetOneUniform;
+    ParentScreen.Movie.Pres.UIRaiseDialog(kDialogData);
+}
+
+simulated function ConfirmSetAllUniforms(UIButton kButton)
+{
+    local TDialogueBoxData kDialogData;
+    kDialogData.eType = eDialog_Warning;
+    kDialogData.strTitle = "Confirm Uniform";
+    kDialogData.strText = "Replace ALL soldiers' uniforms? You can't undo this except by reloading a save.";
+    kDialogData.strAccept = "REPLACE ALL";
+    kDialogData.strCancel = "CANCEL";
+    kDialogData.fnCallbackEx = SetAllUniforms;
+    ParentScreen.Movie.Pres.UIRaiseDialog(kDialogData);
+}
+
+simulated function SetOneUniform(eUIAction eAction, UICallbackData xUserData)
+{
+    local XComGameState_Unit Unit;
+    local XComGameState NewGameState;
+
+    if (eAction != eUIAction_Accept)
     {
-        if (Female)
-        {
-            Unit.kAppearance.nmTorso = 'CnvMed_Std_A_F';
-            Unit.kAppearance.nmLegs = 'CnvMed_Std_A_F';
-            Unit.kAppearance.nmArms = 'CnvMed_Std_A_F';
-            Unit.kAppearance.nmLeftArm = 'CnvMed_Std_A_F';
-            Unit.kAppearance.nmRightArm = 'CnvMed_Std_A_F';
-        }
-        else
-        {
-            Unit.kAppearance.nmTorso = 'CnvMed_Std_A_M';
-            Unit.kAppearance.nmLegs = 'CnvMed_Std_A_M';
-            Unit.kAppearance.nmArms = 'CnvMed_Std_A_M';
-            Unit.kAppearance.nmLeftArm = 'CnvMed_Std_A_M';
-            Unit.kAppearance.nmRightArm = 'CnvMed_Std_A_M';
-        }
-    }
-    else if (ArmorName == 'MediumPlatedArmor')
-    {
-        // PltMed_Std_A_M
-        if (Female)
-        {
-            Unit.kAppearance.nmTorso = 'PltMed_Std_A_F';
-            Unit.kAppearance.nmLegs = 'PltMed_Std_A_F';
-            Unit.kAppearance.nmArms = 'PltMed_Std_A_F';
-            Unit.kAppearance.nmLeftArm = 'PltMed_Std_A_F';
-            Unit.kAppearance.nmRightArm = 'PltMed_Std_A_F';
-        }
-        else
-        {
-            Unit.kAppearance.nmTorso = 'PltMed_Std_A_M';
-            Unit.kAppearance.nmLegs = 'PltMed_Std_A_M';
-            Unit.kAppearance.nmArms = 'PltMed_Std_A_M';
-            Unit.kAppearance.nmLeftArm = 'PltMed_Std_A_M';
-            Unit.kAppearance.nmRightArm = 'PltMed_Std_A_M';
-        }
-    }
-    else if (ArmorName == 'MediumPoweredArmor')
-    {
-        // PwrMed_Std_A_M
-        if (Female)
-        {
-            Unit.kAppearance.nmTorso = 'PwrMed_Std_A_F';
-            Unit.kAppearance.nmLegs = 'PwrMed_Std_A_F';
-            Unit.kAppearance.nmArms = 'PwrMed_Std_A_F';
-            Unit.kAppearance.nmLeftArm = 'PwrMed_Std_A_F';
-            Unit.kAppearance.nmRightArm = 'PwrMed_Std_A_F';
-        }
-        else
-        {
-            Unit.kAppearance.nmTorso = 'PwrMed_Std_A_M';
-            Unit.kAppearance.nmLegs = 'PwrMed_Std_A_M';
-            Unit.kAppearance.nmArms = 'PwrMed_Std_A_M';
-            Unit.kAppearance.nmLeftArm = 'PwrMed_Std_A_M';
-            Unit.kAppearance.nmRightArm = 'PwrMed_Std_A_M';
-        }
-    }
-    else
-    {
-        // Do not mess with special armors.
         return;
     }
 
-    //Unit.kAppearance.nmHelmet = 'Helmet_0_NoHelmet_M';
+    Unit = ParentScreen.GetUnit();
+    if (Unit == none)
+    {
+        return;
+    }
 
-    Unit.kAppearance.nmLeftArmDeco = '';
-    Unit.kAppearance.nmRightArmDeco = '';
+    NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Apply Uniform");
 
-    Unit.kAppearance.iArmorDeco = 0;
-    Unit.kAppearance.iArmorTint = 0;
-    Unit.kAppearance.iArmorTintSecondary = 0;
-    Unit.kAppearance.nmPatterns = 'Camo_B';
+    SetSoldierUniform(Unit, NewGameState);
+
+    `XCOMGAME.GameRuleset.SubmitGameState(NewGameState);
+
+    ParentScreen.Movie.Pres.PlayUISound(eSUISound_MenuSelect);
+
+    ParentScreen.ReleasePawn(true);
+    ParentScreen.CreateSoldierPawn();
 }
 
-simulated function OnButtonCallback(UIButton kButton)
+simulated function SetAllUniforms(eUIAction eAction, UICallbackData xUserData)
 {
-    local XComGameStateHistory History;
     local XComGameState_HeadquartersXCom XComHQ;
 
     local array<XComGameState_Unit> Soldiers;
@@ -119,8 +148,33 @@ simulated function OnButtonCallback(UIButton kButton)
 
     local XComGameState NewGameState;
 
-	local XComGameState_Unit Unit;
+    if (eAction != eUIAction_Accept)
+    {
+        return;
+    }
+
+    XComHQ = XComGameState_HeadquartersXCom(`XCOMHISTORY.GetSingleGameStateObjectForClass(class'XComGameState_HeadquartersXCom'));
+    Soldiers = XComHQ.GetSoldiers();
+
+    NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Apply Uniforms");
+
+    for (iSoldier = 0; iSoldier < Soldiers.Length; iSoldier++)
+    {
+        SetSoldierUniform(Soldiers[iSoldier], NewGameState);
+    }
+
+    `XCOMGAME.GameRuleset.SubmitGameState(NewGameState);
+
+    ParentScreen.Movie.Pres.PlayUISound(eSUISound_MenuSelect);
+
+    ParentScreen.ReleasePawn(true);
+    ParentScreen.CreateSoldierPawn();
+}
+
+simulated function SetSoldierUniform(XComGameState_Unit Unit, XComGameState NewGameState)
+{
     local name ClassName;
+    local bool Female;
 
     local XComGameState_Item ItemState;
     local X2ArmorTemplate ArmorTemplate;
@@ -129,56 +183,50 @@ simulated function OnButtonCallback(UIButton kButton)
     local XComGameState_Item PrimaryWeapon;
     local XComGameState_Item SecondaryWeapon;
 
-    History = `XCOMHISTORY;
-    XComHQ = XComGameState_HeadquartersXCom(History.GetSingleGameStateObjectForClass(class'XComGameState_HeadquartersXCom'));
-    Soldiers = XComHQ.GetSoldiers();
+    ClassName = Unit.GetSoldierClassTemplateName();
 
-    NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Apply Uniforms");
-
-    for (iSoldier = 0; iSoldier < Soldiers.Length; iSoldier++)
+    if (Unit.IsASoldier() &&
+        Unit.IsAlive() &&
+        ClassName != 'Reaper' &&
+        ClassName != 'Skirmisher' &&
+        ClassName != 'Templar')
     {
-        Unit = Soldiers[iSoldier];
-        ClassName = Unit.GetSoldierClassTemplateName();
+        Unit = XComGameState_Unit(NewGameState.CreateStateObject(class'XComGameState_Unit', Unit.ObjectID));
+        NewGameState.AddStateObject(Unit);
 
-        if (Unit.IsASoldier() &&
-            Unit.IsAlive() &&
-            ClassName != 'Reaper' &&
-            ClassName != 'Skirmisher' &&
-            ClassName != 'Templar')
+        if (ClassName != 'Spark')
         {
-            Unit = XComGameState_Unit(NewGameState.CreateStateObject(class'XComGameState_Unit', Unit.ObjectID));
-            NewGameState.AddStateObject(Unit);
-
-            if (ClassName != 'Spark')
+            ItemState = Unit.GetItemInSlot(eInvSlot_Armor);
+            if (ItemState != none)
             {
-                ItemState = Unit.GetItemInSlot(eInvSlot_Armor);
-                if (ItemState != none)
-                {
-                    ArmorTemplate = X2ArmorTemplate(ItemState.GetMyTemplate());
-                    ArmorName = ArmorTemplate.DataName;
-                }
-                else
-                {
-                    ArmorName = '';
-                }
+                ArmorTemplate = X2ArmorTemplate(ItemState.GetMyTemplate());
+                ArmorName = ArmorTemplate.DataName;
+            }
+            else
+            {
+                ArmorName = '';
+            }
 
-                if (Unit.kAppearance.iGender == eGender_Female)
+            Female = Unit.kAppearance.iGender == eGender_Female;
+
+            if (default.AFFECT_HAIR)
+            {
+                Unit.kAppearance.nmHaircut = SelectName(Female, default.HAIR_FEMALE, default.HAIR_MALE);
+            }
+
+            SetAppearanceForArmor(Unit, ArmorName, Female);
+
+            if (default.AFFECT_LOWER_FACE_PROP)
+            {
+                if (Unit.kAppearance.nmFacePropLower != 'Cigarette' &&
+                    Unit.kAppearance.nmFacePropLower != 'Cigar')
                 {
-                    Unit.kAppearance.nmHaircut = 'FemHair_Buzzcut';
+                    Unit.kAppearance.nmFacePropLower = SelectName(Female, default.LOWER_FACE_PROP_FEMALE, default.LOWER_FACE_PROP_MALE);
                 }
-                else
-                {
-                    Unit.kAppearance.nmHaircut = 'MaleHair_Buzzcut';
-                }
+            }
 
-                SetAppearanceForArmor(Unit, ArmorName, Unit.kAppearance.iGender == eGender_Female);
-
-				if (Unit.kAppearance.nmFacePropLower != 'Cigarette' &&
-				    Unit.kAppearance.nmFacePropLower != 'Cigar')
-				{
-					Unit.kAppearance.nmFacePropLower = 'Prop_FaceLower_Blank';
-				}
-
+            if (default.AFFECT_UPPER_FACE_PROP)
+            {
                 if (Unit.kAppearance.nmFacePropUpper != 'Aviators_M' &&
                     Unit.kAppearance.nmFacePropUpper != 'Aviators_F' &&
                     Unit.kAppearance.nmFacePropUpper != 'PlainGlasses_M' &&
@@ -186,28 +234,51 @@ simulated function OnButtonCallback(UIButton kButton)
                     Unit.kAppearance.nmFacePropUpper != 'Eyepatch_M' &&
                     Unit.kAppearance.nmFacePropUpper != 'Eyepatch_F')
                 {
-                    Unit.kAppearance.nmFacePropUpper = 'Prop_FaceUpper_Blank';
-                }
-
-                Unit.kAppearance.nmFacePaint = '';
-
-                if (Unit.kAppearance.iAttitude == 3) // Twitchy
-                {
-                    Unit.kAppearance.iAttitude = 0; // By The Book
+                    Unit.kAppearance.nmFacePropUpper = SelectName(Female, default.UPPER_FACE_PROP_FEMALE, default.UPPER_FACE_PROP_MALE);
                 }
             }
 
-            Unit.kAppearance.iTattooTint = 36; // dark blue
+            if (default.AFFECT_FACE_PAINT)
+            {
+                Unit.kAppearance.nmFacePaint = SelectName(Female, default.FACE_PAINT_FEMALE, default.FACE_PAINT_MALE);
+            }
 
-            Unit.kAppearance.iWeaponTint = 94; // black
-            Unit.kAppearance.nmWeaponPattern = 'Pat_Nothing';
+            if ((default.AFFECT_ATTITUDE && Unit.kAppearance.iAttitude == 3) ||
+                (default.AFFECT_ATTITUDE && Unit.kAppearance.iAttitude == 5))
+            {
+                Unit.kAppearance.iAttitude = SelectInt(Female, default.ATTITUDE_FEMALE, default.ATTITUDE_MALE);
+            }
+        }
 
+        if (default.AFFECT_TATTOO_TINT)
+        {
+            Unit.kAppearance.iTattooTint = SelectInt(Female, default.TATTOO_TINT_FEMALE, default.TATTOO_TINT_MALE);
+        }
+
+        if (default.AFFECT_WEAPON_TINT)
+        {
+            Unit.kAppearance.iWeaponTint = SelectInt(Female, default.WEAPON_TINT_FEMALE, default.WEAPON_TINT_MALE);
+        }
+
+        if (default.AFFECT_WEAPON_PATTERN)
+        {
+            Unit.kAppearance.nmWeaponPattern = SelectName(Female, default.WEAPON_PATTERN_FEMALE, default.WEAPON_PATTERN_MALE);
+        }
+
+        if (default.AFFECT_WEAPON_TINT || default.AFFECT_WEAPON_PATTERN)
+        {
             PrimaryWeapon = Unit.GetItemInSlot(eInvSlot_PrimaryWeapon);
             if (PrimaryWeapon != none)
             {
                 PrimaryWeapon = XComGameState_Item(NewGameState.CreateStateObject(class'XComGameState_Item', PrimaryWeapon.ObjectID));
-                PrimaryWeapon.WeaponAppearance.iWeaponTint = Unit.kAppearance.iWeaponTint;
-                PrimaryWeapon.WeaponAppearance.nmWeaponPattern = Unit.kAppearance.nmWeaponPattern;
+                if (default.AFFECT_WEAPON_TINT)
+                {
+                    PrimaryWeapon.WeaponAppearance.iWeaponTint = Unit.kAppearance.iWeaponTint;
+                }
+                if (default.AFFECT_WEAPON_PATTERN)
+                {
+                    PrimaryWeapon.WeaponAppearance.nmWeaponPattern = Unit.kAppearance.nmWeaponPattern;
+                }
                 NewGameState.AddStateObject(PrimaryWeapon);
             }
 
@@ -215,19 +286,102 @@ simulated function OnButtonCallback(UIButton kButton)
             if (SecondaryWeapon != none)
             {
                 SecondaryWeapon = XComGameState_Item(NewGameState.CreateStateObject(class'XComGameState_Item', SecondaryWeapon.ObjectID));
-                SecondaryWeapon.WeaponAppearance.iWeaponTint = Unit.kAppearance.iWeaponTint;
-                SecondaryWeapon.WeaponAppearance.nmWeaponPattern = Unit.kAppearance.nmWeaponPattern;
+                if (default.AFFECT_WEAPON_TINT)
+                {
+                    SecondaryWeapon.WeaponAppearance.iWeaponTint = Unit.kAppearance.iWeaponTint;
+                }
+                if (default.AFFECT_WEAPON_PATTERN)
+                {
+                    SecondaryWeapon.WeaponAppearance.nmWeaponPattern = Unit.kAppearance.nmWeaponPattern;
+                }
                 NewGameState.AddStateObject(SecondaryWeapon);
             }
+        }
 
-            Unit.UpdatePersonalityTemplate();
-            Unit.StoreAppearance();
+        Unit.UpdatePersonalityTemplate();
+        Unit.StoreAppearance();
+    }
+}
+
+simulated function SetAppearanceForArmor(XComGameState_Unit Unit, name ArmorName, bool Female)
+{
+    if (ArmorName == 'KevlarArmor')
+    {
+        if (default.AFFECT_ARMOR)
+        {
+            Unit.kAppearance.nmTorso = SelectName(Female, default.KEVLAR_ARMOR_FEMALE, default.KEVLAR_ARMOR_MALE);
+            Unit.kAppearance.nmLegs = SelectName(Female, default.KEVLAR_ARMOR_FEMALE, default.KEVLAR_ARMOR_MALE);
+            Unit.kAppearance.nmArms = SelectName(Female, default.KEVLAR_ARMOR_FEMALE, default.KEVLAR_ARMOR_MALE);
+            Unit.kAppearance.nmLeftArm = SelectName(Female, default.KEVLAR_ARMOR_FEMALE, default.KEVLAR_ARMOR_MALE);
+            Unit.kAppearance.nmRightArm = SelectName(Female, default.KEVLAR_ARMOR_FEMALE, default.KEVLAR_ARMOR_MALE);
         }
     }
-    `XCOMGAME.GameRuleset.SubmitGameState(NewGameState);
+    else if (ArmorName == 'MediumPlatedArmor')
+    {
+        if (default.AFFECT_ARMOR)
+        {
+            Unit.kAppearance.nmTorso = SelectName(Female, default.PLATED_ARMOR_FEMALE, default.PLATED_ARMOR_MALE);
+            Unit.kAppearance.nmLegs = SelectName(Female, default.PLATED_ARMOR_FEMALE, default.PLATED_ARMOR_MALE);
+            Unit.kAppearance.nmArms = SelectName(Female, default.PLATED_ARMOR_FEMALE, default.PLATED_ARMOR_MALE);
+            Unit.kAppearance.nmLeftArm = SelectName(Female, default.PLATED_ARMOR_FEMALE, default.PLATED_ARMOR_MALE);
+            Unit.kAppearance.nmRightArm = SelectName(Female, default.PLATED_ARMOR_FEMALE, default.PLATED_ARMOR_MALE);
+        }
+    }
+    else if (ArmorName == 'MediumPoweredArmor')
+    {
+        if (default.AFFECT_ARMOR)
+        {
+            Unit.kAppearance.nmTorso = SelectName(Female, default.POWERED_ARMOR_FEMALE, default.POWERED_ARMOR_MALE);
+            Unit.kAppearance.nmLegs = SelectName(Female, default.POWERED_ARMOR_FEMALE, default.POWERED_ARMOR_MALE);
+            Unit.kAppearance.nmArms = SelectName(Female, default.POWERED_ARMOR_FEMALE, default.POWERED_ARMOR_MALE);
+            Unit.kAppearance.nmLeftArm = SelectName(Female, default.POWERED_ARMOR_FEMALE, default.POWERED_ARMOR_MALE);
+            Unit.kAppearance.nmRightArm = SelectName(Female, default.POWERED_ARMOR_FEMALE, default.POWERED_ARMOR_MALE);
+        }
+    }
+    else
+    {
+        // Do not mess with special armors.
+        return;
+    }
 
-    ParentScreen.ReleasePawn(true);
-    ParentScreen.CreateSoldierPawn();
+    if (default.AFFECT_HELMET)
+    {
+        Unit.kAppearance.nmHelmet = SelectName(Female, default.HELMET_FEMALE, default.HELMET_MALE);
+    }
+
+    Unit.kAppearance.nmLeftArmDeco = '';
+    Unit.kAppearance.nmRightArmDeco = '';
+
+    Unit.kAppearance.iArmorDeco = 0;
+
+    if (default.AFFECT_ARMOR_TINT)
+    {
+        Unit.kAppearance.iArmorTint = SelectInt(Female, default.ARMOR_TINT_FEMALE, default.ARMOR_TINT_MALE);
+        Unit.kAppearance.iArmorTintSecondary = SelectInt(Female, default.ARMOR_TINT_SECONDARY_FEMALE, default.ARMOR_TINT_SECONDARY_MALE);
+    }
+
+    if (default.AFFECT_ARMOR_PATTERN)
+    {
+        Unit.kAppearance.nmPatterns = SelectName(Female, default.ARMOR_PATTERN_FEMALE, default.ARMOR_PATTERN_MALE);
+    }
+}
+
+simulated function int SelectInt(bool Female, int FemaleVariant, int MaleVariant)
+{
+    if (Female)
+    {
+        return FemaleVariant;
+    }
+    return MaleVariant;
+}
+
+simulated function name SelectName(bool Female, name FemaleVariant, name MaleVariant)
+{
+    if (Female)
+    {
+        return FemaleVariant;
+    }
+    return MaleVariant;
 }
 
 defaultproperties
