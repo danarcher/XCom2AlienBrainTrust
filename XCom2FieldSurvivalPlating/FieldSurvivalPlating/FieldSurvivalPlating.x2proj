@@ -32,6 +32,9 @@
     <Content Include="Src\FieldSurvivalPlating\Classes\FieldSurvivalPlatingAbility.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\FieldSurvivalPlating\Classes\FieldSurvivalPlatingRegenEffect.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\FieldSurvivalPlating\Classes\X2DownloadableContentInfo_FieldSurvivalPlating.uc" />
   </ItemGroup>
   <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />

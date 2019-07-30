@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # XCOM ModBuddy Solution File, Format Version 11.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "FieldSurvivalPlating", "FieldSurvivalPlating\FieldSurvivalPlating.x2proj", "{A5D4345F-737E-4C30-90C9-50B8F3AB6663}"
+Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "FieldSurvivalPlating", "FieldSurvivalPlating\FieldSurvivalPlating.x2proj", "{52B9D688-4CD6-438E-917E-79D3F0276F9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|XCOM 2 = Default|XCOM 2
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A5D4345F-737E-4C30-90C9-50B8F3AB6663}.Default|XCOM 2.ActiveCfg = Default|XCOM 2
-		{A5D4345F-737E-4C30-90C9-50B8F3AB6663}.Default|XCOM 2.Build.0 = Default|XCOM 2
+		{52B9D688-4CD6-438E-917E-79D3F0276F9F}.Default|XCOM 2.ActiveCfg = Default|XCOM 2
+		{52B9D688-4CD6-438E-917E-79D3F0276F9F}.Default|XCOM 2.Build.0 = Default|XCOM 2
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

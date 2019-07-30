@@ -2,6 +2,10 @@ class FieldSurvivalPlating extends X2Item config(FieldSurvivalPlating);
 
 var config int CERAMIC_HP;
 var config int CERAMIC_SHIELD;
+var config int CERAMIC_HP_REGEN;
+var config int CERAMIC_HP_REGEN_MAX;
+var config int CERAMIC_SHIELD_REGEN;
+var config int CERAMIC_SHIELD_REGEN_MAX;
 
 static function array<X2DataTemplate> CreateTemplates()
 {
