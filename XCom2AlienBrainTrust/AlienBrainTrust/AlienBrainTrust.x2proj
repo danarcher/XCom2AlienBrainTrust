@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Guid>63184c4b-9401-4018-a463-7ed6c15b22f3</Guid>
+    <Name>AlienBrainTrust</Name>
+    <Description>Adds repeatable research to break open a Codex brain and slow down the Avatar Project.</Description>
+    <SteamPublishID>0</SteamPublishID>
+    <AssemblyName>AlienBrainTrust</AssemblyName>
+    <RootNamespace>AlienBrainTrust</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
+    <Folder Include="Content\" />
+    <Folder Include="Localization\" />
+    <Folder Include="Src\" />
+    <Folder Include="Src\AlienBrainTrust\" />
+    <Folder Include="Src\AlienBrainTrust\Classes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\XComAlienBrainTrust.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ReadMe.md" />
+    <Content Include="ModPreview.jpg" />
+    <Content Include="Config\XComEditor.ini" />
+    <Content Include="Config\XComEngine.ini" />
+    <Content Include="Config\XComGame.ini" />
+    <Content Include="Localization\XComGame.int" />
+    <Content Include="Src\AlienBrainTrust\Classes\X2DownloadableContentInfo_AlienBrainTrust.uc" />
+    <Content Include="Src\AlienBrainTrust\Classes\X2StrategyElement_AlienBrainTrust.uc">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />
+</Project>
