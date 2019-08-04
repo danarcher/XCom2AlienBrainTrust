@@ -20,6 +20,9 @@
     <Content Include="Config\XComAlienBrainTrust.ini">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Localization\AlienBrainTrust.int">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ReadMe.md" />
     <Content Include="ModPreview.jpg" />
     <Content Include="Config\XComEditor.ini" />
