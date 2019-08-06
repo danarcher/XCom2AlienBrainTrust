@@ -20,6 +20,9 @@
     <Content Include="Config\XComFieldSurvivalPlating.ini">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\UILibrary_FieldSurvivalPlating.upk">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ReadMe.md" />
     <Content Include="ModPreview.jpg" />
     <Content Include="Config\XComEditor.ini" />
