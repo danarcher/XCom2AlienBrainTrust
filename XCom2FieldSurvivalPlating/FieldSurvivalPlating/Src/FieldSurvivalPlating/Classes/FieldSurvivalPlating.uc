@@ -54,7 +54,10 @@ static function X2DataTemplate CreatePlating(name ItemName, name AbilityName, st
     Template.Abilities.AddItem(AbilityName);
 
     Template.bInfiniteItem = true;
-    Template.StartingItem = true;
+    if (Tier == 0)
+    {
+        Template.StartingItem = true;
+    }
     Template.CanBeBuilt = false;
     Template.TradingPostValue = 0;
     Template.PointsToComplete = 0;
