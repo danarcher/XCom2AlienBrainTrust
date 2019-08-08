@@ -9,6 +9,11 @@ static event InstallNewCampaign(XComGameState StartState)
 {
 }
 
+static event OnPostTemplatesCreated()
+{
+    AddUtilitySlots();
+}
+
 static function UpdateStorage()
 {
     local XComGameState NewGameState;
@@ -58,4 +63,17 @@ static function bool AddItemToStorage(name ItemTemplateName, X2ItemTemplateManag
         }
     }
     return false;
+}
+
+static function AddUtilitySlots()
+{
+    local X2ItemTemplateManager ItemManager;
+    local X2ArmorTemplate Armor;
+
+    ItemManager = class'X2ItemTemplateManager'.static.GetItemTemplateManager();
+    Armor = X2ArmorTemplate(ItemManager.FindItemTemplate('KevlarArmor'));
+    if (Armor != none)
+    {
+        Armor.bAddsUtilitySlot = true;
+    }
 }
