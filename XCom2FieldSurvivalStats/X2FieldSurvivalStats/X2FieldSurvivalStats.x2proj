@@ -2,11 +2,11 @@
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Guid>b01df8e3-1242-427c-8f27-a819320949de</Guid>
-    <Name>FieldSurvivalStats</Name>
+    <Name>X2FieldSurvivalStats</Name>
     <Description>Upgrade soldier stats to improve their chances of survival.</Description>
     <SteamPublishID>0</SteamPublishID>
-    <AssemblyName>FieldSurvivalStats</AssemblyName>
-    <RootNamespace>FieldSurvivalStats</RootNamespace>
+    <AssemblyName>X2FieldSurvivalStats</AssemblyName>
+    <RootNamespace>X2FieldSurvivalStats</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Config\" />

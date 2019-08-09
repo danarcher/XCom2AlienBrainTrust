@@ -1,4 +1,4 @@
-﻿# Field Survival Stats
+﻿# X2 Field Survival Stats
 
 Upgrade soldier stats to improve their chances of survival.
 
