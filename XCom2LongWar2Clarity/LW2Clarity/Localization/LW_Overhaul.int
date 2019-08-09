@@ -1,0 +1,67 @@
+[ProtectRegionEarly X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Liberation: Find a Lead"
+
+[ProtectRegion X2LWAlienActivityTemplate]
+ActivityName="ProtectRegion3Activity"
+ActivityObjectives[0]="Liberation: Hinder ADVENT Operations"
+ActivityObjectives[2]="Liberation: Assault Regional Headquarters"
+
+[Counterinsurgency X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Conceal Resistance Haven Location"
+
+[ReinforceActivity X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Intercept ADVENT Reinforcements"
+
+[BuildResearchFacility X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Ambush an ADVENT Construction Project"
+
+[ScheduledOffworldReinforcements X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Intercept Scheduled Offworld Reinforcements"
+ActivityObjectives[1]="Recover UFO Artifacts"
+
+[EmergencyOffworldReinforcements X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Intercept Emergency Offworld Reinforcements"
+ActivityObjectives[1]="Recover UFO Artifacts"
+
+[SuperEmergencyOffworldReinforcements X2LWAlienActivityTemplate]
+ActivityName="SuperEmergencyOffworldReinforcementsActivity"
+ActivityObjectives[0]="Intercept Super Emergency Offworld Reinforcements"
+ActivityObjectives[1]="Recover UFO Artifacts"
+
+[Invasion X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Prevent Region Invasion"
+ActivityObjectives[1]="Defend the Regional Government"
+
+[Foothold X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Destroy Earth Reclamation Force"
+ActivityObjectives[1]="Defend the Earth Government"
+
+[Propaganda X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Get ADVENT's Attention"
+
+[ProtectResearch X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Locate an ADVENT Facility"
+
+[ProtectData X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Conduct Resistance Operations"
+
+[HighValuePrisoner X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Free a Significant Prisoner"
+
+[Logistics X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Seize ADVENT Resource Cache"
+
+[IntelRaid X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Prevent Intel Loss"
+
+[SupplyConvoy X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Prevent Supply Loss"
+
+[RecruitRaid X2LWAlienActivityTemplate]
+ActivityObjectives[0]="Prevent Recruitment Loss"
+
+[Snare X2LWAlienActivityTemplate]
+ActivityObjectives[0]="It's A Trap!"
+
+[Rendezvous X2LWAlienActivityTemplate]
+ActivityObjectives[1]="Ambush ADVENT Handlers"
