@@ -2,11 +2,11 @@
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Guid>1d3af8a6-a831-45de-8b90-34be8302b114</Guid>
-    <Name>LW2Clarity</Name>
+    <Name>X2LW2Clarity</Name>
     <Description>Improve some Long War 2 in-game text.</Description>
     <SteamPublishID>0</SteamPublishID>
-    <AssemblyName>LW2Clarity</AssemblyName>
-    <RootNamespace>LW2Clarity</RootNamespace>
+    <AssemblyName>X2LW2Clarity</AssemblyName>
+    <RootNamespace>X2LW2Clarity</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Localization\LW_Overhaul.int">

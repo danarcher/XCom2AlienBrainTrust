@@ -1,4 +1,4 @@
-﻿# LW2 Clarity
+﻿# X2 LW2 Clarity
 
 Improve some Long War 2 in-game text.
 
