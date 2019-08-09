@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Guid>85940b53-9841-4874-8967-705eceafa9c9</Guid>
+    <Name>FieldSurvivalCover</Name>
+    <Description>Increases the high cover bonus for all units.</Description>
+    <SteamPublishID>0</SteamPublishID>
+    <AssemblyName>FieldSurvivalCover</AssemblyName>
+    <RootNamespace>FieldSurvivalCover</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Config\XComGameCore.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ReadMe.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />
+</Project>
