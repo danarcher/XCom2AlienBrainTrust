@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # XCOM ModBuddy Solution File, Format Version 11.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "FieldSurvivalConsciousness", "FieldSurvivalConsciousness\FieldSurvivalConsciousness.x2proj", "{018DC43C-B881-4ABA-8734-8E516A3A5A13}"
+Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "XCom2FieldSurvivalConsciousness", "XCom2FieldSurvivalConsciousness\XCom2FieldSurvivalConsciousness.x2proj", "{018DC43C-B881-4ABA-8734-8E516A3A5A13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

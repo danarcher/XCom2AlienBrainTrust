@@ -1,20 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Guid>4afd0544-2bac-40ed-ab26-658936c8d2fb</Guid>
-    <Name>FieldSurvivalConsciousness</Name>
+    <Name>XCom2FieldSurvivalConsciousness</Name>
     <Description>XCOM troops cannot be rendered unconscious.</Description>
     <SteamPublishID>0</SteamPublishID>
-    <AssemblyName>FieldSurvivalConsciousness</AssemblyName>
-    <RootNamespace>FieldSurvivalConsciousness</RootNamespace>
+    <AssemblyName>XCom2FieldSurvivalConsciousness</AssemblyName>
+    <RootNamespace>XCom2FieldSurvivalConsciousness</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Content\" />
     <Folder Include="Localization\" />
     <Folder Include="Src\" />
-    <Folder Include="Src\FieldSurvivalConsciousness\" />
-    <Folder Include="Src\FieldSurvivalConsciousness\Classes\" />
+    <Folder Include="Src\XCom2FieldSurvivalConsciousness\" />
+    <Folder Include="Src\XCom2FieldSurvivalConsciousness\Classes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\XComFieldSurvivalConsciousness.ini">
@@ -26,10 +26,10 @@
     <Content Include="Config\XComEngine.ini" />
     <Content Include="Config\XComGame.ini" />
     <Content Include="Localization\XComGame.int" />
-    <Content Include="Src\FieldSurvivalConsciousness\Classes\X2Ability_FieldSurvivalConsciousness.uc">
+    <Content Include="Src\XCom2FieldSurvivalConsciousness\Classes\X2Ability_FieldSurvivalConsciousness.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\FieldSurvivalConsciousness\Classes\X2DownloadableContentInfo_FieldSurvivalConsciousness.uc" />
+    <Content Include="Src\XCom2FieldSurvivalConsciousness\Classes\X2DownloadableContentInfo_FieldSurvivalConsciousness.uc" />
   </ItemGroup>
   <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />
 </Project>
