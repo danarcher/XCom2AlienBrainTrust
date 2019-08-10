@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # XCOM ModBuddy Solution File, Format Version 11.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "LethargicAvatarProject", "LethargicAvatarProject\LethargicAvatarProject.x2proj", "{92F31CCC-8EAF-4FE0-BBC4-809B5E71B12A}"
+Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "XCom2LethargicAvatarProject", "XCom2LethargicAvatarProject\XCom2LethargicAvatarProject.x2proj", "{92F31CCC-8EAF-4FE0-BBC4-809B5E71B12A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

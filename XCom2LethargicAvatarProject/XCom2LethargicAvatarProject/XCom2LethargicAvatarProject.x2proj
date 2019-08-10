@@ -1,18 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Guid>4f6a3d77-91e5-419b-8e43-fb91be81a5e4</Guid>
-    <Name>LethargicAvatarProject</Name>
+    <Name>XCom2LethargicAvatarProject</Name>
     <Description>Slows the Avatar Project.</Description>
     <SteamPublishID>0</SteamPublishID>
-    <AssemblyName>LethargicAvatarProject</AssemblyName>
-    <RootNamespace>LethargicAvatarProject</RootNamespace>
+    <AssemblyName>XCom2LethargicAvatarProject</AssemblyName>
+    <RootNamespace>XCom2LethargicAvatarProject</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Config\" />
-    <Folder Include="Content\" />
     <Folder Include="Localization\" />
-    <Folder Include="Src\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\XComGameData.ini">
