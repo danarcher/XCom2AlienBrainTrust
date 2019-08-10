@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # XCOM ModBuddy Solution File, Format Version 11.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "NoTimeForChitChat", "NoTimeForChitChat\NoTimeForChitChat.x2proj", "{FFD2A03F-9337-4495-B8CB-F64C89C364AD}"
+Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "XCom2NoTimeForChitChat", "XCom2NoTimeForChitChat\XCom2NoTimeForChitChat.x2proj", "{FFD2A03F-9337-4495-B8CB-F64C89C364AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
