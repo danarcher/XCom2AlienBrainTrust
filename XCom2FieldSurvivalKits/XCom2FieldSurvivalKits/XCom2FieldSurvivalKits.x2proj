@@ -1,20 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Guid>bb341bd6-4170-4866-9791-d605038d456f</Guid>
-    <Name>FieldSurvivalKits</Name>
+    <Name>XCom2FieldSurvivalKits</Name>
     <Description>Equip every soldier with a field survival kit during missions, which includes a medkit and smoke grenade, in addition to their equipped items.</Description>
     <SteamPublishID>0</SteamPublishID>
-    <AssemblyName>FieldSurvivalKits</AssemblyName>
-    <RootNamespace>FieldSurvivalKits</RootNamespace>
+    <AssemblyName>XCom2FieldSurvivalKits</AssemblyName>
+    <RootNamespace>XCom2FieldSurvivalKits</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Content\" />
     <Folder Include="Localization\" />
     <Folder Include="Src\" />
-    <Folder Include="Src\FieldSurvivalKits\" />
-    <Folder Include="Src\FieldSurvivalKits\Classes\" />
+    <Folder Include="Src\XCom2FieldSurvivalKits\" />
+    <Folder Include="Src\XCom2FieldSurvivalKits\Classes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\XComFieldSurvivalKits.ini">
@@ -26,14 +26,14 @@
     <Content Include="Config\XComEngine.ini" />
     <Content Include="Config\XComGame.ini" />
     <Content Include="Localization\XComGame.int" />
-    <Content Include="Src\FieldSurvivalKits\Classes\FSKAbilities.uc">
+    <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKAbilities.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\FieldSurvivalKits\Classes\FSKDLCInfo.uc" />
-    <Content Include="Src\FieldSurvivalKits\Classes\FSKTemporaryItemEffect.uc">
+    <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKDLCInfo.uc" />
+    <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKTemporaryItemEffect.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\FieldSurvivalKits\Classes\FSKTemporaryItemEffectGameState.uc">
+    <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKTemporaryItemEffectGameState.uc">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
