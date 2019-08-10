@@ -1,12 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Guid>b01df8e3-1242-427c-8f27-a819320949de</Guid>
-    <Name>X2FieldSurvivalStats</Name>
+    <Name>XCom2FieldSurvivalStats</Name>
     <Description>Upgrade soldier stats to improve their chances of survival.</Description>
     <SteamPublishID>0</SteamPublishID>
-    <AssemblyName>X2FieldSurvivalStats</AssemblyName>
-    <RootNamespace>X2FieldSurvivalStats</RootNamespace>
+    <AssemblyName>XCom2FieldSurvivalStats</AssemblyName>
+    <RootNamespace>XCom2FieldSurvivalStats</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Config\" />
