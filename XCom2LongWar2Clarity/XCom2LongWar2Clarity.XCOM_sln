@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # XCOM ModBuddy Solution File, Format Version 11.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "X2LW2Clarity", "X2LW2Clarity\X2LW2Clarity.x2proj", "{FEF9FA13-C14C-4A0F-894E-A04ED50B75D7}"
+Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "XCom2LongWar2Clarity", "XCom2LongWar2Clarity\XCom2LongWar2Clarity.x2proj", "{FEF9FA13-C14C-4A0F-894E-A04ED50B75D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
