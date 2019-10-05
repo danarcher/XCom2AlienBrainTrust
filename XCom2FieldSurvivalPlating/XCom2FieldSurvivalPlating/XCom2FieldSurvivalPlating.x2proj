@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project ToolsVersion="12" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Guid>d4cd7054-4768-4a5d-b33d-0a27e59c45fe</Guid>
     <Name>XCom2FieldSurvivalPlating</Name>
@@ -9,36 +9,25 @@
     <RootNamespace>XCom2FieldSurvivalPlating</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Content\" />
-    <Folder Include="Localization\" />
-    <Folder Include="Src\" />
-    <Folder Include="Src\XCom2FieldSurvivalPlating\" />
-    <Folder Include="Src\XCom2FieldSurvivalPlating\Classes\" />
+    <Folder Include="Config" />
+    <Folder Include="Content" />
+    <Folder Include="Localization" />
+    <Folder Include="Src\XCom2FieldSurvivalPlating\Classes" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\XComFieldSurvivalPlating.ini">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Content\UILibrary_FieldSurvivalPlating.upk">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="ReadMe.md" />
-    <Content Include="ModPreview.jpg" />
     <Content Include="Config\XComEditor.ini" />
     <Content Include="Config\XComEngine.ini" />
+    <Content Include="Config\XComFieldSurvivalPlating.ini" />
     <Content Include="Config\XComGame.ini" />
+    <Content Include="Config\XComGameData.ini" />
     <Content Include="Config\XComLW_Overhaul.ini" />
+    <Content Include="Content\UILibrary_FieldSurvivalPlating.upk" />
     <Content Include="Localization\XComGame.int" />
-    <Content Include="Src\XCom2FieldSurvivalPlating\Classes\FieldSurvivalPlating.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\XCom2FieldSurvivalPlating\Classes\FieldSurvivalPlatingAbility.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\XCom2FieldSurvivalPlating\Classes\FieldSurvivalPlatingRegenEffect.uc">
-      <SubType>Content</SubType>
-    </Content>
+    <Content Include="ModPreview.jpg" />
+    <Content Include="ReadMe.md" />
+    <Content Include="Src\XCom2FieldSurvivalPlating\Classes\FieldSurvivalPlating.uc" />
+    <Content Include="Src\XCom2FieldSurvivalPlating\Classes\FieldSurvivalPlatingAbility.uc" />
+    <Content Include="Src\XCom2FieldSurvivalPlating\Classes\FieldSurvivalPlatingRegenEffect.uc" />
     <Content Include="Src\XCom2FieldSurvivalPlating\Classes\X2DownloadableContentInfo_FieldSurvivalPlating.uc" />
   </ItemGroup>
   <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />
