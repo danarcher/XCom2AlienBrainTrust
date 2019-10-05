@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project ToolsVersion="12" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Guid>bb341bd6-4170-4866-9791-d605038d456f</Guid>
     <Name>XCom2FieldSurvivalKits</Name>
@@ -9,33 +9,22 @@
     <RootNamespace>XCom2FieldSurvivalKits</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Content\" />
-    <Folder Include="Localization\" />
-    <Folder Include="Src\" />
-    <Folder Include="Src\XCom2FieldSurvivalKits\" />
-    <Folder Include="Src\XCom2FieldSurvivalKits\Classes\" />
+    <Folder Include="Config" />
+    <Folder Include="Localization" />
+    <Folder Include="Src\XCom2FieldSurvivalKits\Classes" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\XComFieldSurvivalKits.ini">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="ReadMe.md" />
-    <Content Include="ModPreview.jpg" />
     <Content Include="Config\XComEditor.ini" />
     <Content Include="Config\XComEngine.ini" />
+    <Content Include="Config\XComFieldSurvivalKits.ini" />
     <Content Include="Config\XComGame.ini" />
     <Content Include="Localization\XComGame.int" />
-    <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
+    <Content Include="ModPreview.jpg" />
+    <Content Include="ReadMe.md" />
+    <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKAbilities.uc" />
     <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKDLCInfo.uc" />
-    <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKTemporaryItemEffect.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKTemporaryItemEffectGameState.uc">
-      <SubType>Content</SubType>
-    </Content>
+    <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKTemporaryItemEffect.uc" />
+    <Content Include="Src\XCom2FieldSurvivalKits\Classes\FSKTemporaryItemEffectGameState.uc" />
   </ItemGroup>
   <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />
 </Project>
