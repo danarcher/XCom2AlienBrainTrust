@@ -47,6 +47,8 @@ var config int ARMOR_TINT_MALE;
 var config int ARMOR_TINT_SECONDARY_FEMALE;
 var config int ARMOR_TINT_SECONDARY_MALE;
 
+var config array<name> EXCLUDE_SOLDIER_CLASSES;
+
 var UIButton UniformOneButton;
 var UIButton UniformAllButton;
 var UIArmory_MainMenu ParentScreen;
@@ -74,7 +76,7 @@ function AddFloatingButton()
     UniformOneButton.InitButton('', "Set Soldier Uniform", ConfirmSetOneUniform, eUIButtonStyle_HOTLINK_BUTTON);
     UniformOneButton.SetResizeToText(false);
     UniformOneButton.SetFontSize(24);
-    UniformOneButton.SetPosition(140, 80);
+    UniformOneButton.SetPosition(140, 40);
     UniformOneButton.SetSize(260, 36);
     UniformOneButton.Show();
 
@@ -82,7 +84,7 @@ function AddFloatingButton()
     UniformAllButton.InitButton('', "Set ALL Uniforms", ConfirmSetAllUniforms, eUIButtonStyle_HOTLINK_BUTTON);
     UniformAllButton.SetResizeToText(false);
     UniformAllButton.SetFontSize(24);
-    UniformAllButton.SetPosition(140, 120);
+    UniformAllButton.SetPosition(140, 80);
     UniformAllButton.SetSize(260, 36);
     UniformAllButton.Show();
 }
@@ -187,9 +189,7 @@ simulated function SetSoldierUniform(XComGameState_Unit Unit, XComGameState NewG
 
     if (Unit.IsASoldier() &&
         Unit.IsAlive() &&
-        ClassName != 'Reaper' &&
-        ClassName != 'Skirmisher' &&
-        ClassName != 'Templar')
+        default.EXCLUDE_SOLDIER_CLASSES.Find(ClassName) == INDEX_NONE)
     {
         Unit = XComGameState_Unit(NewGameState.CreateStateObject(class'XComGameState_Unit', Unit.ObjectID));
         NewGameState.AddStateObject(Unit);
