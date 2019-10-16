@@ -36,6 +36,7 @@ static function X2AbilityTemplate AddStayConscious()
 
     ImmunityEffect.SetDisplayInfo(ePerkBuff_Bonus, Template.LocFriendlyName, Template.GetMyHelpText(), Template.IconImage, false, , Template.AbilitySourceName);
     ImmunityEffect.BuildPersistentEffect(`BPE_TickNever_LastForever);
+    Template.AddTargetEffect(ImmunityEffect);
 
     Template.BuildNewGameStateFn = TypicalAbility_BuildGameState;
 
