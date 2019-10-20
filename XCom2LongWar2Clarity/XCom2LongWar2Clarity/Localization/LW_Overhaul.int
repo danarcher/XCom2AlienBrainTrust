@@ -16,16 +16,16 @@ ActivityObjectives[0]="Intercept ADVENT Reinforcements"
 ActivityObjectives[0]="Ambush an ADVENT Construction Project"
 
 [ScheduledOffworldReinforcements X2LWAlienActivityTemplate]
-ActivityObjectives[0]="Intercept Scheduled Offworld Reinforcements"
+ActivityObjectives[0]="Intercept Scheduled UFO"
 ActivityObjectives[1]="Recover UFO Artifacts"
 
 [EmergencyOffworldReinforcements X2LWAlienActivityTemplate]
-ActivityObjectives[0]="Intercept Emergency Offworld Reinforcements"
+ActivityObjectives[0]="Intercept Emergency UFO"
 ActivityObjectives[1]="Recover UFO Artifacts"
 
 [SuperEmergencyOffworldReinforcements X2LWAlienActivityTemplate]
 ActivityName="SuperEmergencyOffworldReinforcementsActivity"
-ActivityObjectives[0]="Intercept Super Emergency Offworld Reinforcements"
+ActivityObjectives[0]="Intercept Super Emergency UFO"
 ActivityObjectives[1]="Recover UFO Artifacts"
 
 [Invasion X2LWAlienActivityTemplate]
